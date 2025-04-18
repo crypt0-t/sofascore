@@ -1,22 +1,28 @@
 
-document.getElementById('scoreForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const title = document.getElementById('title').value;
+document.getElementById('scoreForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
   const price = parseFloat(document.getElementById('price').value);
-  const description = document.getElementById('description').value;
+  const desc = document.getElementById('description').value.toLowerCase();
+  const imgUrl = document.getElementById('image').value;
 
-  // Simple scoring simulation based on keywords
-  let flipScore = 5;
-  let suggestedOffer = price * 0.5;
-  let resaleEstimate = price * 1.5;
-  let script = "Hey, if this doesn’t sell soon would you consider £" + Math.round(suggestedOffer) + "? I can collect quickly.";
+  let score = 6;
+  if (desc.includes("good condition")) score += 2;
+  if (desc.includes("needs gone") || desc.includes("quick sale")) score += 1;
+  if (desc.includes("stain") || desc.includes("damaged")) score -= 2;
 
-  if (description.toLowerCase().includes('good condition')) flipScore += 2;
-  if (description.toLowerCase().includes('needs gone')) flipScore += 1;
-  if (description.toLowerCase().includes('damaged')) flipScore -= 2;
+  const offer = Math.round(price * 0.5);
+  const resale = Math.round(price * 1.5);
+  const script = `Hey, if this doesn’t sell would you consider £${offer}? I can collect quickly.`;
 
-  document.getElementById('flipScore').textContent = Math.min(flipScore, 10);
-  document.getElementById('offer').textContent = Math.round(suggestedOffer);
-  document.getElementById('resale').textContent = Math.round(resaleEstimate);
+  document.getElementById('flipScore').textContent = Math.min(score, 10);
+  document.getElementById('offer').textContent = offer;
+  document.getElementById('resale').textContent = resale;
   document.getElementById('script').textContent = script;
+
+  if (imgUrl) {
+    const img = document.getElementById('preview');
+    img.src = imgUrl;
+    img.style.display = 'block';
+  }
 });

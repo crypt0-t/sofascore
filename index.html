@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +10,25 @@
 <body>
   <div class="container">
     <h1>The Refurb Room – Sofa Score</h1>
+    <p>Paste a listing and simulate AI flip scoring</p>
     <form id="scoreForm">
-      <label>Title: <input type="text" id="title" /></label>
-      <label>Price: <input type="number" id="price" /></label>
-      <label>Description: <textarea id="description"></textarea></label>
-      <label>Image URL: <input type="text" id="image" /></label>
-      <button type="submit">Score Sofa</button>
+      <label>Listing Link:
+        <input type="text" id="link" placeholder="Paste FB/Gumtree listing URL" />
+      </label>
+      <label>Price:
+        <input type="number" id="price" placeholder="Enter listed price" />
+      </label>
+      <label>Description:
+        <textarea id="description" placeholder="Paste description..."></textarea>
+      </label>
+      <label>Image URL:
+        <input type="text" id="image" placeholder="Paste image URL" />
+      </label>
+      <button type="submit">Score This Sofa</button>
     </form>
     <div class="results">
       <h2>AI Scoring Output:</h2>
+      <img id="preview" src="" alt="Image Preview" style="max-width:100%;display:none;" />
       <p><strong>Flip Score:</strong> <span id="flipScore">-</span></p>
       <p><strong>Suggested Offer:</strong> £<span id="offer">-</span></p>
       <p><strong>Estimated Resale:</strong> £<span id="resale">-</span></p>
