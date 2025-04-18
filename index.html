@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Refurb Room – Sofa Score</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>The Refurb Room – Sofa Score</h1>
+    <form id="scoreForm">
+      <label>Title: <input type="text" id="title" /></label>
+      <label>Price: <input type="number" id="price" /></label>
+      <label>Description: <textarea id="description"></textarea></label>
+      <label>Image URL: <input type="text" id="image" /></label>
+      <button type="submit">Score Sofa</button>
+    </form>
+    <div class="results">
+      <h2>AI Scoring Output:</h2>
+      <p><strong>Flip Score:</strong> <span id="flipScore">-</span></p>
+      <p><strong>Suggested Offer:</strong> £<span id="offer">-</span></p>
+      <p><strong>Estimated Resale:</strong> £<span id="resale">-</span></p>
+      <p><strong>Negotiation Script:</strong> <span id="script">-</span></p>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
